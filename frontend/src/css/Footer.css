@@ -1,0 +1,35 @@
+footer {
+  width: 100%;
+}
+
+.my-footer {
+  background-color: #265261;
+  color: #c4d9e0;
+}
+
+.my-footer a {
+  color: #c4d9e0;           /* لون النص الافتراضي */
+  text-decoration: none;     /* إزالة الخط الافتراضي */
+  position: relative;        /* لتحديد موقع الـ pseudo-element */
+  transition: color 0.3s ease;
+}
+
+.my-footer a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;              /* المسافة تحت النص */
+  width: 0;
+  height: 2px;               /* سمك الخط */
+  background-color: #38bdf8; /* لون الخط */
+  transition: width 0.3s ease;
+}
+
+.my-footer a:hover {
+  color: #38bdf8;            /* تغيير لون النص عند hover */
+}
+
+.my-footer a:hover::after {
+  width: 100%;               /* يظهر الخط بالكامل عند hover */
+}
+

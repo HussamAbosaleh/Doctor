@@ -1,0 +1,43 @@
+.doctor-reviews {
+  margin-top: 15px;
+}
+
+.review-card {
+  background: #f9fbfd;
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.review-stars {
+  margin-bottom: 6px;
+}
+
+.star {
+  color: #ccc;
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+.star.filled {
+  color: #f5b301; /* ذهبي */
+}
+
+.review-comment {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.review-author {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: right;
+}
+
+.no-reviews {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #777;
+}

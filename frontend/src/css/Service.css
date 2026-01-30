@@ -1,0 +1,71 @@
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+}
+
+.service-card {
+  flex: 1 1 calc(33.333% - 20px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.service-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.service-card button {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card button:hover {
+  transform: scale(1.05); /* يكبر الزر  */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* إضافة ظل خفيف */
+}
+
+.filter-input {
+  background-color: white; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  padding: 5px 10px;
+}
+
+.filter-input:hover {
+  border-color: #0d6efd; 
+  box-shadow: 0 0 5px rgba(13,110,253,0.5);
+}
+
+.filter-select, .filter-date {
+  background-color: #f0f8ff; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: border 0.3s;
+}
+
+.filter-select:hover, .filter-date:hover {
+  border: 1px solid #0d6efd; 
+}
+
+.input-with-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.input-with-icon .calendar-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 16px;
+  color: #6c757d;
+}

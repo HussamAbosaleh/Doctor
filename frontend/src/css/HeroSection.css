@@ -1,0 +1,192 @@
+ /* ===============================
+   HERO SECTION
+================================  */
+
+.hero-section {
+  position: relative;
+  min-height: 65vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 130px;
+}
+
+/* Background Image */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background: url('../assets/Hero.jpeg') center / cover no-repeat;
+  z-index: 0;
+}
+
+/* Dark Overlay */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 1.25rem;
+  text-align: center;
+  color: #fff;
+}
+
+.cta-button {
+  position: absolute;
+  left: 300px;
+  top: 165px;
+
+  display: inline-flex;            /* المهم */
+  align-items: center;              /* محاذاة عمودية */
+  gap: 12px;                        /* مسافة بين النص/الأيقونة */
+
+  background: #0399c7;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;               /* متوازن */
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  border-radius: 12px;              /* مستطيل، مو كبسولة */
+  cursor: pointer;
+
+  white-space: nowrap;              /* يمنع نزول النص */
+  transition: background 0.25s ease,
+              transform 0.25s ease,
+              box-shadow 0.25s ease;
+
+  box-shadow: 0 10px 25px rgba(3, 153, 199, 0.35);
+  z-index: 3;
+}
+
+.cta-button:hover {
+  background: #055a74;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(3, 153, 199, 0.45);
+}
+
+/* ===============================
+   CONTACT SIDEBAR
+================================ */
+
+.contact-sidebar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 10px;
+  z-index: 50;
+}
+
+.sidebar-item {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.item-icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  color: #40e0d0;
+  background: transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  will-change: transform;
+}
+
+.item-text {
+  position: absolute;
+  right: 75px;
+  top: 50%;
+  transform: translateY(-50%) translateX(20px);
+  opacity: 0;
+  background: #fff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.sidebar-item:hover .item-icon {
+  background: #40e0d0;
+  color: #fff;
+  transform: translateX(-12px);
+}
+
+.sidebar-item:hover .item-text {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Arrow */
+.item-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  transform: translateY(-50%);
+  border-left: 8px solid #fff;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .contact-sidebar {
+    flex-direction: row;
+    top: auto;
+    bottom: 20px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    gap: 16px;
+  }
+
+  .sidebar-item,
+  .item-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .item-icon {
+    font-size: 1.5rem;
+  }
+
+  .item-text {
+    display: none;
+  }
+
+  .sidebar-item:hover .item-icon {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
