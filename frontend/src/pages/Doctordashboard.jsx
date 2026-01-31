@@ -26,7 +26,7 @@ export default function Doctordashboard() {
   const fetchServices = async () => {
     setLoadingServices(true);
     try {
-      const res = await axios.get("http://localhost:5000/api/services/my", {
+      const res = await API.get(`/api/services/by-specialty/${slug}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setServices(res.data);
@@ -41,9 +41,10 @@ export default function Doctordashboard() {
   const fetchAppointments = async () => {
     setLoadingAppointments(true);
     try {
-      const res = await axios.get("http://localhost:5000/api/appointments/my", {
+      const res = await API.get(`/api/appointments/my`, {
         headers: { Authorization: `Bearer ${token}` }
       });
+
       setAppointments(res.data);
     } catch (err) {
       console.error(err);

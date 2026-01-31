@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import API from "../api/api.js";
+import API from "../api";
+
+API.get(`/api/services/by-specialty/${slug}`)
+
 import { Card, Button, Container, Modal, Form } from "react-bootstrap";
 import "../css/Service.css";
 
@@ -36,14 +39,13 @@ export default function SpecialtyPage() {
   const handleBookNow = async (service) => {
     try {
       setSelectedService(service);
-      const res = await axios.get(
-        `http://localhost:5000/api/appointments/available?doctor_id=${service.doctor.id}&service_id=${service.id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const res = await API.get(`/api/services/by-specialty/${slug}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          
+        },
+      }); 
+
       setAvailableSlots(res.data);
       setShowModal(true);
     } catch (err) {

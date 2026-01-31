@@ -12,12 +12,15 @@ export default function PatientReviews() {
 
   const headers = { Authorization: `Bearer ${token}` };
 
-  useEffect(() => {
-    axios.get(`${API}/appointments/my/completed`, { headers })
+  useEffect(() => 
+    API.get(`/api/services/by-specialty/${slug}`),
+ { headers })
       .then(res => setBookings(res.data))
       .catch(() => setError('Failed to load bookings'));
-  }, []);
+  }[token];
 
+
+ 
   const submitReview = async (e) => {
     e.preventDefault();
     try {
@@ -73,4 +76,3 @@ export default function PatientReviews() {
       </form>
     </div>
   );
-}

@@ -17,7 +17,8 @@ export default function Header() {
   useEffect(() => {
     const fetchSpecialties = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/services/specialties");
+        const res = await API.get(`/api/services/by-specialty/${slug}`);
+
         setSpecialties(res.data);
       } catch (err) {
         console.error("Error fetching specialties:", err);

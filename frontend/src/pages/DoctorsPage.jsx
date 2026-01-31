@@ -16,7 +16,7 @@
 //   useEffect(() => {
 //     const fetchDoctors = async () => {
 //       try {
-//         const res = await axios.get('http://localhost:5000/api/doctors');
+//         const res = await API.get(`/api/services/by-specialty/${slug}`);
 //         setDoctors(res.data);
 //       } catch (err) {
 //         console.error('Error fetching doctors:', err);
@@ -37,9 +37,7 @@
 
 //     if (!doctorServices[doctorId]) {
 //       try {
-//         const res = await axios.get(
-//           `http://localhost:5000/api/services/doctor/${doctorId}`
-//         );
+//         const res = await API.get(`/api/services/doctor/${doctorId}`);
 
 //         setDoctorServices((prev) => ({
 //           ...prev,
@@ -131,7 +129,7 @@ export default function DoctorsPage() {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/doctors");
+        const res = await API.get("/api/doctors");
         setDoctors(res.data);
       } catch (err) {
         console.error(err);
@@ -152,9 +150,7 @@ export default function DoctorsPage() {
 
     if (!doctorServices[doctorId]) {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/services/doctor/${doctorId}`
-        );
+        const res = await API.get(`/api/services/doctor/${doctorId}`);
         setDoctorServices((prev) => ({
           ...prev,
           [doctorId]: res.data,

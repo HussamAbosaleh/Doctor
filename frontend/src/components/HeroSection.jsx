@@ -16,7 +16,7 @@ const HeroSection = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/services", {
+        const res = await API.get(`/api/services/by-specialty/${slug}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -36,14 +36,11 @@ const HeroSection = () => {
     setSelectedDoctor(selectedService.doctor);
 
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/appointments/available?doctor_id=${selectedService.doctor.id}&service_id=${selectedService.id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const res = await API.get(`/api/services/by-specialty/${slug}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       setAvailableSlots(res.data);
     } catch (err) {
       const msg = err.response?.data?.error || "Error fetching available slots";
