@@ -4,23 +4,23 @@ import User from '../models/User.js';
 import slugify from 'slugify';
 
 //قائمة الخدمات بالهيدر
+
+
+
 export const getSpecialties = async (req, res) => {
   try {
     const specialties = await User.findAll({
-      where: { role: "Doctor" },
-      attributes: [
-        [sequelize.fn('DISTINCT', sequelize.col('specialty_slug')), 'slug'],
-        ['specialty', 'label'],
-      ],
-      raw : true,
+      where: { role: 'Doctor' },
+      attributes: ['specialty', 'specialty_slug'],
+      raw: true,
     });
 
     res.json(specialties);
   } catch (err) {
-      console.error('getSpecialties error:',err);
-      res.status(500).json({ error: "Server error" });
-    }
-  };
+    console.error('getSpecialties error:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
 
 // جلب كل الخدمات
 export const getAllServices = async (req, res) => {
