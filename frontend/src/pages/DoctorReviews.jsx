@@ -1,12 +1,12 @@
 // import { useEffect, useState } from "react";
-// import axios from "axios";
+// import api from "../api/api";
 // import "../css/DoctorReviews.css";
 
 // export default function DoctorReviews({ doctorId }) {
 //   const [reviews, setReviews] = useState([]);
 
 //   useEffect(() => {
-//     axios
+//     
 //      
 //       .then(res => setReviews(res.data))
 //       .catch(() => setReviews([]));
@@ -53,7 +53,7 @@ export default function DoctorReviews() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    API.get(`/api/services/specialities/${slug}`)
+    API.get(`/api/reviews/doctor/${doctorId}`)
     
       .then(res => setReviews(res.data))
       .catch(() => setReviews([]))

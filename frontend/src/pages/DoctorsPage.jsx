@@ -1,5 +1,5 @@
 // import { useEffect, useState, useRef } from 'react';
-// import axios from 'axios';
+// import api from '../api/api';
 // import { Container, Image } from 'react-bootstrap';
 // import DoctorReviews from './DoctorReviews';
 // import {Link} from "react-router-dom"
