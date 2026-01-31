@@ -26,10 +26,13 @@ import User from '../models/User.js';
  // }
 //};
 
+
 const authToken = async (req, res, next) => {
-  // BYPASS AUTH FOR DEMO
+  console.log("AUTH MIDDLEWARE HIT"); // <-- أضف هذا السطر
   next();
 };
+
+
 
 export default authToken;
 
