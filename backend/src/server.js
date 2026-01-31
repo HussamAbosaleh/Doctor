@@ -12,12 +12,10 @@ import Service from './models/Service.js';
 
 initRelations();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process
 const startServer = async () => {
 
 
-  await seedDoctors();
-  await seedServices(); 
 
   app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`);
