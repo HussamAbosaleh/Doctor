@@ -1,4 +1,4 @@
-import { sequelize } from '../config/database.js';
+import  sequelize  from '../config/database.js';
 import Service from '../models/Service.js';
 import User from '../models/User.js';
 import slugify from 'slugify';

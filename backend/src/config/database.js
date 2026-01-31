@@ -1,30 +1,21 @@
-import { Sequelize } from 'sequelize';
-import { env } from './env.js';
-// evn الفصل بين الاعدادات متل اسم المستخدم وكلمة المرور
+import  Sequelize  from "sequelize";
 
-export const sequelize = new Sequelize(
-  env.db.name,
-  env.db.user,
-  env.db.password,
+const sequelize = new Sequelize(
+  process.env.DDB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
-    host: env.db.host,
-    port: env.db.port, 
-    dialect: env.db.dialect,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: "postgres",
+    logging: false,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
   }
 );
-// الفرق بين authenticate و sync ان الاولى بتتأكد اذا في اتصال بين التطبيق وقاعدة البيانات
-// والتانية بتتأكد اذا النماذج متزامنة مع قاعدة البيانات
 
-export const testConnection = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('PostgreSQL connection established successfully.');
-// await sync بتتأكد اذا النماذج متزامنة مع قاعدة البيانات
-// await sequelize.sync({ alter: true }) بتتأكد اذا النماذج متزامنة مع قاعدة البيانات
-
-    await sequelize.sync({ alter: true });
-    console.log('All models synchronized successfully.');
-  } catch (error) {
-    console.error('Unable to connect to PostgreSQL database:', error.message);
-  }
-};
+export default sequelize;
