@@ -78,7 +78,7 @@ export default function Doctordashboard() {
     e.preventDefault(); 
     try { 
       if (editService) {
-        await axios.put(`http://localhost:5000/api/services/${editService.id}`, formData, {
+        await API.put(`/api/services/${editService.id}`, formData, {
           headers: { Authorization: `Bearer ${token}` } 
         }); 
       } else { 
@@ -96,7 +96,7 @@ export default function Doctordashboard() {
   const handleDelete = async (id) => { 
     if (!window.confirm("Are you sure about deleting this service?")) return; 
     try { 
-      await axios.delete(`http://localhost:5000/api/services/${id}`, { 
+      await API.delete(`/api/services/${id}`, { 
         headers: { Authorization: `Bearer ${token}` } 
       }); 
       fetchServices(); 
@@ -108,11 +108,9 @@ export default function Doctordashboard() {
   // Update Appointment Status
   const updateAppointmentStatus = async (id, status) => {
     try {
-      await axios.put(
-        `http://localhost:5000/api/appointments/${id}/status`,
-        { status },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      await API.put(`/api/appointments/${id}/status`, { status }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
       fetchAppointments();
     } catch (err) {
       console.error(err);

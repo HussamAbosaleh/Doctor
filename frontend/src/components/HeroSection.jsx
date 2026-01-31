@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/HeroSection.css";
-import axios from "axios";
+import API from "../api/api";
 import { Modal, Form, Button } from "react-bootstrap";
 
 const HeroSection = () => {

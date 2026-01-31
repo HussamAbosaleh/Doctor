@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Form, Button, Card, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../api/api";
 import '../css/LogReg.css';
 
 export default function Register() {

@@ -53,8 +53,8 @@ export default function DoctorReviews() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/reviews/doctor/${doctorId}`)
+    API.get(`/api/services/specialities/${slug}`)
+    
       .then(res => setReviews(res.data))
       .catch(() => setReviews([]))
       .finally(() => setLoading(false));

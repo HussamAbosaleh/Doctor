@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/PatientReview.css';
 
-const API = 'http://localhost:5000/api';
+const API = (`/api/services/specialities/${slug}`)
 
 export default function PatientReviews() {
   const [bookings, setBookings] = useState([]);

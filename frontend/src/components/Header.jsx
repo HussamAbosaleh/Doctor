@@ -4,7 +4,7 @@ import '../css/Header.css'
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
-import axios from "axios";
+import API from "../api/api";
 
 export default function Header() {
   const [showFirst, setShowFirst] = useState(false);
