@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import API from "../api";
+import API from "../api/api.js";
 
-API.get(`/api/services/specialities`)
+
 
 import { Card, Button, Container, Modal, Form } from "react-bootstrap";
 import "../css/Service.css";
 
 export default function SpecialtyPage() {
-  const { slug } = useParams();
+  const { slug } = useParams();API.get(`/api/services/specialities`)
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -23,7 +23,7 @@ export default function SpecialtyPage() {
     const fetchServices = async () => {
       try {
         const res = await API.get(
-  `/api/services/by-specialities?specialities=${slug}`
+  `/api/services/speciality/${slug}`
 );
 
         setServices(res.data);
@@ -39,7 +39,7 @@ export default function SpecialtyPage() {
   const handleBookNow = async (service) => {
     try {
       setSelectedService(service);
-      const res = await API.get(`/api/services/by-specialty/${slug}`, {
+      const res = await API.get(`/api/services/speciality/${slug}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
 

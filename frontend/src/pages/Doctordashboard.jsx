@@ -26,7 +26,7 @@ export default function Doctordashboard() {
   const fetchServices = async () => {
     setLoadingServices(true);
     try {
-      const res = await API.get(`/api/services/by-specialty/${slug}`, {
+      const res = await API.get(`/api/services/specialty/${slug}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setServices(res.data);

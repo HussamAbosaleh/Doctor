@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import API from '../api/api';
 import '../css/PatientReview.css';
 
-const API = (`/api/services/specialities/${slug}`)
+
 
 export default function PatientReviews() {
   const [bookings, setBookings] = useState([]);
@@ -12,14 +12,13 @@ export default function PatientReviews() {
 
   const headers = { Authorization: `Bearer ${token}` };
 
-  useEffect(() => 
-    API.get(`/api/services/by-specialty/${slug}`),
- { headers })
+  useEffect(() => {
+    API.get(`/api/services/speciality/${slug}`, { headers })
       .then(res => setBookings(res.data))
       .catch(() => setError('Failed to load bookings'));
-  }[token];
-
-
+  }, [token, slug]);
+  
+  
  
   const submitReview = async (e) => {
     e.preventDefault();
@@ -76,3 +75,6 @@ export default function PatientReviews() {
       </form>
     </div>
   );
+}
+
+
