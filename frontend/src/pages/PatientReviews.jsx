@@ -24,7 +24,7 @@ export default function PatientReviews() {
   const submitReview = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API}/reviews`, form, { headers });
+      await API.post(`/api/reviews`, form, { headers });
       alert('Review submitted');
       setForm({ booking_id: '', rating: 5, comment: '' });
     } catch (err) {

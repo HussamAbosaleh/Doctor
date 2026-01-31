@@ -82,7 +82,7 @@ export default function Doctordashboard() {
           headers: { Authorization: `Bearer ${token}` } 
         }); 
       } else { 
-        await axios.post("http://localhost:5000/api/services", formData, {
+        await API.post(`/api/services`, formData, {
           headers: { Authorization: `Bearer ${token}` } 
         }); 
       } 

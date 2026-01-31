@@ -42,7 +42,7 @@ export default function SpecialtyPage() {
       const res = await API.get(`/api/services/by-specialty/${slug}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
-          
+
         },
       }); 
 
@@ -57,8 +57,7 @@ export default function SpecialtyPage() {
     if (!selectedDate || !selectedTime) return alert("Please select a date and time");
 
     try {
-      await axios.post("http://localhost:5000/api/appointments",
-        {
+      await API.post(`/api/appointments`, {
           doctor_id: selectedService.doctor.id,
           service_id: selectedService.id,
           appointment_date: selectedDate,

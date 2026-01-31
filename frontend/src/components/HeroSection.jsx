@@ -54,14 +54,12 @@ const HeroSection = () => {
       return alert("Please select a date and time");
 
     try {
-      await axios.post(
-        "http://localhost:5000/api/appointments",
-        {
-          doctor_id: selectedDoctor.id,
-          service_id: selectedService.id,
-          appointment_date: selectedDate,
-          appointment_time: selectedTime,
-        },
+      await API.post(`/api/appointments`, {
+        doctor_id: selectedDoctor.id,
+        service_id: selectedService.id,
+        appointment_date: selectedDate,
+        appointment_time: selectedTime,
+      },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
