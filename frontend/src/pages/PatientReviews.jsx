@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import API from '../api/api';
 import '../css/PatientReview.css';
 
 const API = (`/api/services/specialities/${slug}`)

@@ -23,7 +23,7 @@ export default function SpecialtyPage() {
     const fetchServices = async () => {
       try {
         const res = await API.get(
-  `/api/services/by-speciality?speciality=${slug}`
+  `/api/services/by-specialities?specialities=${slug}`
 );
 
         setServices(res.data);

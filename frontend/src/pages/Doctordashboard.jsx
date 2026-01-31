@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios"; 
+import API from "../api/api";
 import { Card, Button, Container, Modal, Form, Badge, Table } from "react-bootstrap"; 
 import "../css/Service.css"
 
