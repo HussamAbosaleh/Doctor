@@ -7,7 +7,7 @@
 
 //   useEffect(() => {
 //     axios
-//       .get(`http://localhost:5000/api/reviews/doctor/${doctorId}`)
+//      
 //       .then(res => setReviews(res.data))
 //       .catch(() => setReviews([]));
 //   }, [doctorId]);

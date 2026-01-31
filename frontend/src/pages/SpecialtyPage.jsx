@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import API from "../api";
 
-API.get(`/api/services/by-specialty/${slug}`)
+API.get(`/api/services/specialities`)
 
 import { Card, Button, Container, Modal, Form } from "react-bootstrap";
 import "../css/Service.css";
