@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../api/api.js";
 import { Card, Button, Container, Modal, Form } from "react-bootstrap";
 import "../css/Service.css";
 
@@ -19,7 +19,10 @@ export default function SpecialtyPage() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/services/by-specialty?specialty=${slug}`);
+        const res = await API.get(
+  `/api/services/by-speciality?speciality=${slug}`
+);
+
         setServices(res.data);
       } catch (err) {
         console.error("Error fetching services:", err);
