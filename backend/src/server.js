@@ -12,11 +12,9 @@ import Service from './models/Service.js';
 
 initRelations();
 
-const PORT = process
+const PORT = process.env.PORT || 5000;
+
 const startServer = async () => {
-
-
-
   app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`);
   });
